@@ -61,8 +61,8 @@ clean:
 .PHONY: compile
 compile:
 	@echo "==> Building the project"
-	@docker run -v $(PWD):/go/src/github.com/digitalocean/digitalocean-cloud-controller-manager \
-	  -w /go/src/github.com/digitalocean/digitalocean-cloud-controller-manager \
+	@docker run -v $(PWD):/app/digitalocean-cloud-controller-manager \
+	  -w /app/digitalocean-cloud-controller-manager \
 	  -e GOOS=linux -e GOARCH=amd64 -e CGO_ENABLED=0 golang:$(GOVERSION) \
 	  go build -ldflags "$(LDFLAGS)" ${PKG}
 
